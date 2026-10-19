@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador C.A.D.I. - Misión Precálculo 12</title>
+    <title>Simulador C.A.D.I. - Misión Precálculo y Cálculo 12°</title>
     <style>
         :root {
             --cadi-navy: #1B2A4A;
@@ -29,7 +29,7 @@
             border-radius: 12px;
             box-shadow: 0 8px 24px rgba(0,0,0,0.15);
             width: 100%;
-            max-width: 750px;
+            max-width: 780px;
             overflow: hidden;
             border-top: 6px solid var(--cadi-green);
         }
@@ -43,7 +43,7 @@
 
         .header h1 {
             margin: 0;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             letter-spacing: 0.5px;
         }
 
@@ -52,6 +52,20 @@
             color: var(--cadi-green);
             font-weight: bold;
             font-size: 0.95rem;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            background-color: #e0e0e0;
+            height: 8px;
+            display: none;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: var(--cadi-green);
+            width: 0%;
+            transition: width 0.3s ease;
         }
 
         .content {
@@ -145,6 +159,15 @@
             margin-right: 10px;
         }
 
+        .step-counter {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: var(--cadi-green);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
         .certificate {
             border: 3px double var(--cadi-navy);
             padding: 25px;
@@ -188,14 +211,18 @@
 <div class="container">
     <div class="header">
         <h1>C.A.D.I. BILINGUAL ACADEMY</h1>
-        <p>SIMULADOR TÁCTICO: MISIÓN PRECÁLCULO 12 — FUNCIONES</p>
+        <p>SIMULADOR TÁCTICO: MISIÓN PRECÁLCULO Y CÁLCULO 12°</p>
+    </div>
+
+    <div class="progress-bar-container" id="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
     </div>
 
     <div class="content">
         <!-- Paso 0: Login -->
         <div id="step-0" class="step active">
             <h2>Acceso Estudiantil Institucional</h2>
-            <p>Ingrese sus datos para iniciar la evaluación táctica de Precálculo:</p>
+            <p>Ingrese sus datos para iniciar la evaluación táctica de 10 preguntas:</p>
             <div class="form-group">
                 <label for="student-name">Nombre Completo:</label>
                 <input type="text" id="student-name" placeholder="Ej. María Rodríguez">
@@ -209,81 +236,162 @@
 
         <!-- Paso 1 -->
         <div id="step-1" class="step">
-            <h3>Fase 1: Análisis de Dominio Real y Restricciones (ODS 9)</h3>
+            <div class="step-counter">Fase 1 de 10 — Dominio Real</div>
+            <h3>Análisis de Dominio Real y Restricciones (ODS 9)</h3>
             <div class="scenario-box">
-                Se requiere monitorear el flujo de datos de los sensores sísmicos en Los Santos mediante el modelo f(x) = √(2x - 8) / (x - 6). ¿Cuál es el dominio real de operación continua sin interrupciones o indefiniciones?
+                Se requiere monitorear el flujo de datos de los sensores sísmicos en Los Santos mediante el modelo <strong>f(x) = √(2x - 8) / (x - 6)</strong>. ¿Cuál es el dominio real de operación continua sin indefiniciones?
             </div>
             <div class="options-group">
-                <label class="option-card">
-                    <input type="radio" name="q1" value="A">
-                    [4, 6) ∪ (6, ∞)
-                </label>
-                <label class="option-card">
-                    <input type="radio" name="q1" value="B">
-                    [4, ∞)
-                </label>
-                <label class="option-card">
-                    <input type="radio" name="q1" value="C">
-                    (-∞, 6) ∪ (6, ∞)
-                </label>
+                <label class="option-card"><input type="radio" name="q1" value="A"> [4, 6) ∪ (6, ∞)</label>
+                <label class="option-card"><input type="radio" name="q1" value="B"> [4, ∞)</label>
+                <label class="option-card"><input type="radio" name="q1" value="C"> (-∞, 6) ∪ (6, ∞)</label>
             </div>
             <button class="btn" onclick="nextStep(1)">Registrar Decisión y Continuar</button>
         </div>
 
         <!-- Paso 2 -->
         <div id="step-2" class="step">
-            <h3>Fase 2: Transformación de Modelos Funcionales</h3>
+            <div class="step-counter">Fase 2 de 10 — Transformaciones</div>
+            <h3>Transformación de Modelos Funcionales</h3>
             <div class="scenario-box">
-                La señal base g(x) = x² fue desplazada 3 unidades a la derecha, reflejada verticalmente y desplazada 5 unidades hacia arriba para calibrar el receptor de frecuencia. ¿Cuál es la ecuación transformada f(x)?
+                La señal base <strong>g(x) = x²</strong> fue desplazada 3 unidades a la derecha, reflejada verticalmente sobre el eje X y trasladada 5 unidades hacia arriba. ¿Cuál es la ecuación transformada f(x)?
             </div>
             <div class="options-group">
-                <label class="option-card">
-                    <input type="radio" name="q2" value="A">
-                    f(x) = -(x - 3)² + 5
-                </label>
-                <label class="option-card">
-                    <input type="radio" name="q2" value="B">
-                    f(x) = -(x + 3)² + 5
-                </label>
-                <label class="option-card">
-                    <input type="radio" name="q2" value="C">
-                    f(x) = (-x - 3)² - 5
-                </label>
+                <label class="option-card"><input type="radio" name="q2" value="A"> f(x) = -(x - 3)² + 5</label>
+                <label class="option-card"><input type="radio" name="q2" value="B"> f(x) = -(x + 3)² + 5</label>
+                <label class="option-card"><input type="radio" name="q2" value="C"> f(x) = (-x - 3)² - 5</label>
             </div>
             <button class="btn" onclick="nextStep(2)">Registrar Decisión y Continuar</button>
         </div>
 
         <!-- Paso 3 -->
         <div id="step-3" class="step">
-            <h3>Fase 3: Optimización Cuadrática y Vértice</h3>
+            <div class="step-counter">Fase 3 de 10 — Vértice y Optimización</div>
+            <h3>Optimización Cuadrática Fotovoltaica (ODS 7)</h3>
             <div class="scenario-box">
-                Un modelo de energía solar para la academia genera P(t) = -2t² + 16t + 10 (en kW). ¿En qué tiempo 't' se alcanza la máxima generación y cuál es dicha potencia máxima?
+                Un modelo de generación solar para la academia genera <strong>P(t) = -2t² + 16t + 10</strong> (en kW). ¿En qué tiempo 't' se alcanza la máxima generación y cuál es dicha potencia máxima?
             </div>
             <div class="options-group">
-                <label class="option-card">
-                    <input type="radio" name="q3" value="A">
-                    t = 4 horas, Potencia Máxima = 42 kW
-                </label>
-                <label class="option-card">
-                    <input type="radio" name="q3" value="B">
-                    t = 8 horas, Potencia Máxima = 10 kW
-                </label>
-                <label class="option-card">
-                    <input type="radio" name="q3" value="C">
-                    t = 2 horas, Potencia Máxima = 34 kW
-                </label>
+                <label class="option-card"><input type="radio" name="q3" value="A"> t = 4 horas, Potencia Máxima = 42 kW</label>
+                <label class="option-card"><input type="radio" name="q3" value="B"> t = 8 horas, Potencia Máxima = 10 kW</label>
+                <label class="option-card"><input type="radio" name="q3" value="C"> t = 2 horas, Potencia Máxima = 34 kW</label>
             </div>
-            <button class="btn" onclick="nextStep(3)">Finalizar Misión y Generar Ficha</button>
+            <button class="btn" onclick="nextStep(3)">Registrar Decisión y Continuar</button>
         </div>
 
-        <!-- Paso Final -->
+        <!-- Paso 4 -->
         <div id="step-4" class="step">
+            <div class="step-counter">Fase 4 de 10 — Límites Indeterminados</div>
+            <h3>Levantamiento de Indeterminación [0/0]</h3>
+            <div class="scenario-box">
+                Al evaluar la velocidad de transferencia instantánea se obtiene el límite <strong>lim_{x→4} (x² - 16) / (x - 4)</strong>. ¿Cuál es el valor real del límite al factorizar?
+            </div>
+            <div class="options-group">
+                <label class="option-card"><input type="radio" name="q4" value="A"> 8</label>
+                <label class="option-card"><input type="radio" name="q4" value="B"> 0</label>
+                <label class="option-card"><input type="radio" name="q4" value="C"> Indefinido / No existe</label>
+            </div>
+            <button class="btn" onclick="nextStep(4)">Registrar Decisión y Continuar</button>
+        </div>
+
+        <!-- Paso 5 -->
+        <div id="step-5" class="step">
+            <div class="step-counter">Fase 5 de 10 — Límites al Infinito</div>
+            <h3>Comportamiento Asintótico Horizontal</h3>
+            <div class="scenario-box">
+                Determine el límite al infinito que modela la capacidad máxima del servidor institucional: <strong>lim_{x→∞} (6x² + 5x) / (2x² - 1)</strong>.
+            </div>
+            <div class="options-group">
+                <label class="option-card"><input type="radio" name="q5" value="A"> 3</label>
+                <label class="option-card"><input type="radio" name="q5" value="B"> ∞</label>
+                <label class="option-card"><input type="radio" name="q5" value="C"> 0</label>
+            </div>
+            <button class="btn" onclick="nextStep(5)">Registrar Decisión y Continuar</button>
+        </div>
+
+        <!-- Paso 6 -->
+        <div id="step-6" class="step">
+            <div class="step-counter">Fase 6 de 10 — Continuidad</div>
+            <h3>Análisis de Continuidad Estructural</h3>
+            <div class="scenario-box">
+                Una función de carga f(x) está definida a trozos: f(x) = kx + 2 para x &lt; 3, y f(x) = 11 para x ≥ 3. ¿Qué valor debe tener la constante <strong>k</strong> para que la función sea continua en x = 3?
+            </div>
+            <div class="options-group">
+                <label class="option-card"><input type="radio" name="q6" value="A"> k = 3</label>
+                <label class="option-card"><input type="radio" name="q6" value="B"> k = 11</label>
+                <label class="option-card"><input type="radio" name="q6" value="C"> k = 2</label>
+            </div>
+            <button class="btn" onclick="nextStep(6)">Registrar Decisión y Continuar</button>
+        </div>
+
+        <!-- Paso 7 -->
+        <div id="step-7" class="step">
+            <div class="step-counter">Fase 7 de 10 — Cálculo Diferencial</div>
+            <h3>Derivación Polinomial e Instantánea</h3>
+            <div class="scenario-box">
+                Dada la función de posición <strong>f(x) = 4x³ - 5x² + 7x - 2</strong>, determine la función de velocidad instantánea mediante su primera derivada f'(x):
+            </div>
+            <div class="options-group">
+                <label class="option-card"><input type="radio" name="q7" value="A"> f'(x) = 12x² - 10x + 7</label>
+                <label class="option-card"><input type="radio" name="q7" value="B"> f'(x) = 4x² - 5x + 7</label>
+                <label class="option-card"><input type="radio" name="q7" value="C"> f'(x) = 12x³ - 10x² + 7</label>
+            </div>
+            <button class="btn" onclick="nextStep(7)">Registrar Decisión y Continuar</button>
+        </div>
+
+        <!-- Paso 8 -->
+        <div id="step-8" class="step">
+            <div class="step-counter">Fase 8 de 10 — Optimización con Derivadas</div>
+            <h3>Puntos Críticos de Mínimo Costo (ODS 9)</h3>
+            <div class="scenario-box">
+                El costo de bombeo de agua responde a <strong>C(x) = 0.5x² - 40x + 1500</strong>. Utilizando la primera derivada C'(x) = 0, ¿qué volumen 'x' de miles de litros minimiza el costo?
+            </div>
+            <div class="options-group">
+                <label class="option-card"><input type="radio" name="q8" value="A"> x = 40 mil litros/hora</label>
+                <label class="option-card"><input type="radio" name="q8" value="B"> x = 20 mil litros/hora</label>
+                <label class="option-card"><input type="radio" name="q8" value="C"> x = 80 mil litros/hora</label>
+            </div>
+            <button class="btn" onclick="nextStep(8)">Registrar Decisión y Continuar</button>
+        </div>
+
+        <!-- Paso 9 -->
+        <div id="step-9" class="step">
+            <div class="step-counter">Fase 9 de 10 — Cálculo Integral</div>
+            <h3>Antiderivada e Integral Indefinida</h3>
+            <div class="scenario-box">
+                Determine la familia de antiderivadas para la función de flujo de corriente <strong>∫ (6x² - 4x + 5) dx</strong>:
+            </div>
+            <div class="options-group">
+                <label class="option-card"><input type="radio" name="q9" value="A"> 2x³ - 2x² + 5x + C</label>
+                <label class="option-card"><input type="radio" name="q9" value="B"> 12x - 4 + C</label>
+                <label class="option-card"><input type="radio" name="q9" value="C"> 6x³ - 4x² + 5x + C</label>
+            </div>
+            <button class="btn" onclick="nextStep(9)">Registrar Decisión y Continuar</button>
+        </div>
+
+        <!-- Paso 10 -->
+        <div id="step-10" class="step">
+            <div class="step-counter">Fase 10 de 10 — Teorema Fundamental</div>
+            <h3>Integral Definida y Acumulación</h3>
+            <div class="scenario-box">
+                Calcule el área total acumulada bajo la curva de potencia evaluando la integral definida: <strong>∫₀³ (2x + 1) dx</strong>.
+            </div>
+            <div class="options-group">
+                <label class="option-card"><input type="radio" name="q10" value="A"> 12 unidades cuadradas</label>
+                <label class="option-card"><input type="radio" name="q10" value="B"> 7 unidades cuadradas</label>
+                <label class="option-card"><input type="radio" name="q10" value="C"> 10 unidades cuadradas</label>
+            </div>
+            <button class="btn" onclick="nextStep(10)">Finalizar Misión y Generar Ficha</button>
+        </div>
+
+        <!-- Paso Final: Certificado -->
+        <div id="step-11" class="step">
             <div class="certificate">
                 <h2>C.A.D.I. BILINGUAL ACADEMY</h2>
-                <p><strong>FICHA OFICIAL DE EVALUACIÓN TÁCTICA — PRECÁLCULO 12°</strong></p>
+                <p><strong>FICHA OFICIAL DE EVALUACIÓN TÁCTICA — PRECÁLCULO Y CÁLCULO 12°</strong></p>
                 <hr style="border: 1px solid #1B2A4A; margin: 15px 0;">
                 <p><strong>Estudiante:</strong> <span id="cert-name"></span></p>
-                <p><strong>Correo:</strong> <span id="cert-email"></span></p>
+                <p><strong>Correo Electrónico:</strong> <span id="cert-email"></span></p>
                 <p><strong>Fecha y Hora:</strong> <span id="cert-date"></span></p>
 
                 <div>Calificación Obtenida:</div>
@@ -306,11 +414,19 @@
 <script>
     let studentData = { name: '', email: '' };
     let score = 0;
+    const totalQuestions = 10;
 
     const correctAnswers = {
-        q1: 'A', // 25 pts
-        q2: 'A', // 25 pts
-        q3: 'A'  // 25 pts + 25 pts base por login
+        q1: 'A', // 10 pts
+        q2: 'A', // 10 pts
+        q3: 'A', // 10 pts
+        q4: 'A', // 10 pts
+        q5: 'A', // 10 pts
+        q6: 'A', // 10 pts
+        q7: 'A', // 10 pts
+        q8: 'A', // 10 pts
+        q9: 'A', // 10 pts
+        q10: 'A' // 10 pts -> Total: 100 pts
     };
 
     function startSimulation() {
@@ -326,8 +442,9 @@
 
         studentData.name = name;
         studentData.email = email;
-        score += 25; // Puntaje base de registro correcto
 
+        document.getElementById('progress-container').style.display = 'block';
+        updateProgressBar(1);
         showStep(1);
     }
 
@@ -339,15 +456,23 @@
         }
 
         if (selected.value === correctAnswers[`q${currentStep}`]) {
-            score += 25;
+            score += 10;
         }
 
-        if (currentStep < 3) {
-            showStep(currentStep + 1);
+        if (currentStep < totalQuestions) {
+            const nextStepNum = currentStep + 1;
+            updateProgressBar(nextStepNum);
+            showStep(nextStepNum);
         } else {
+            document.getElementById('progress-container').style.display = 'none';
             generateCertificate();
-            showStep(4);
+            showStep(11);
         }
+    }
+
+    function updateProgressBar(stepNumber) {
+        const percentage = (stepNumber / totalQuestions) * 100;
+        document.getElementById('progress-bar').style.width = `${percentage}%`;
     }
 
     function showStep(stepNumber) {
